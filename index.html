@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<h1>Hello, World!</h1>
+		<button id="login" type="button">GitHub</button>
+
+		<script>
+			var GITHUB_CLIENT_ID = 'cebd40667a0b8bb6ea10';
+			document.getElementById('login').addEventListener('click', function() {
+				var url = 'https://github.com/login/oauth/authorize?';
+				url +='client_id=' + GITHUB_CLIENT_ID;
+				window.location = url;
+			});
+
+			var url = window.location;
+			console.log('url', url);
+			if (url.search !== '' && url.search.indexOf('?code=') === 0) {
+				// has a code
+				var code = url.search.split('=')[1];
+				console.log('code', code);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "contribute",
+  "description": "",
+  "main": "src/app.jsx",
+  "authors": [
+    "David Cox <losttime.shuffle@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dconstructing/contribute",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

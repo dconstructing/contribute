@@ -1,5 +1,5 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var GithubLogin = require('./components/GithubLogin');
+var AddPane = require('./components/AddPane');
 
-ReactDOM.render(<GithubLogin clientId="cebd40667a0b8bb6ea10" />, document.getElementById('content'));
+ReactDOM.render(<AddPane />, document.getElementById('content'));

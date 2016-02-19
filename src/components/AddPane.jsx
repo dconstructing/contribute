@@ -2,11 +2,14 @@ var React = require('react');
 
 var GithubLogin = require('./GithubLogin');
 
+var repoService = require('../services/repositories');
+
 module.exports = React.createClass({
 	getInitialState: function() {
 		return {
 			expanded: false,
-			token: null
+			token: null,
+			ownedRepos: []
 		};
 	},
 
@@ -14,7 +17,13 @@ module.exports = React.createClass({
 		this.setState({expanded: true});
 	},
 	tokenReceived: function(token) {
+		var context = this;
 		this.setState({token: token});
+		// get repos
+		repoService.getPublic(token).then(function(repos) {
+			console.log('got repos', repos);
+			context.setState({ownedRepos: repos});
+		});
 	},
 
 	componentWillMount: function() {
@@ -33,7 +42,11 @@ module.exports = React.createClass({
 		} else if (!this.state.token) {
 			content = <GithubLogin clientId="cebd40667a0b8bb6ea10" onTokenReceived={this.tokenReceived} />
 		} else {
-			content = <p>Token: {this.state.token}</p>
+			content = <div>
+				{ this.state.ownedRepos.map(function(item) {
+					return <div key={item.id}>{item.fullName}</div>
+				})}
+			</div>
 		}
 		return (
 			<div>

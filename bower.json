@@ -17,5 +17,6 @@
     "tests"
   ],
   "dependencies": {
+    "octokat": "^0.4.16"
   }
 }

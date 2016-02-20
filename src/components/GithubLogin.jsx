@@ -1,13 +1,13 @@
-var React = require('react');
+import React from 'react';
 
-module.exports = React.createClass({
-	handleButtonClick: function(event) {
+export default class GithubLogin extends React.Component {
+	handleButtonClick(event) {
 		var url = 'https://github.com/login/oauth/authorize?';
 		url +='client_id=' + this.props.clientId;
 		window.location = url;
-	},
+	}
 
-	componentWillMount: function() {
+	componentWillMount() {
 		var context = this;
 		var url = window.location;
 		console.log('url', url);
@@ -32,8 +32,9 @@ module.exports = React.createClass({
 			}
 			xhr.send('{"code":"' + code + '"}');
 		}
-	},
-	render: function() {
-		return <button type="button" onClick={this.handleButtonClick}>GitHub</button>
 	}
-});
+
+	render() {
+		return <button type="button" onClick={this.handleButtonClick.bind(this)}>GitHub</button>
+	}
+}

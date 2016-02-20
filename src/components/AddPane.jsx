@@ -1,22 +1,24 @@
-var React = require('react');
+import React from 'react';
 
-var GithubLogin = require('./GithubLogin');
+import GithubLogin from './GithubLogin';
 
-var repoService = require('../services/repositories');
+import repoService from '../services/repositories';
 
-module.exports = React.createClass({
-	getInitialState: function() {
-		return {
+export default class AddPane extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
 			expanded: false,
 			token: null,
 			ownedRepos: []
 		};
-	},
+	}
 
-	expand: function() {
+	expand() {
 		this.setState({expanded: true});
-	},
-	tokenReceived: function(token) {
+	}
+
+	tokenReceived(token) {
 		var context = this;
 		this.setState({token: token});
 		// get repos
@@ -24,9 +26,9 @@ module.exports = React.createClass({
 			console.log('got repos', repos);
 			context.setState({ownedRepos: repos});
 		});
-	},
+	}
 
-	componentWillMount: function() {
+	componentWillMount() {
 		var url = window.location;
 		// The `code` will be in the address bar as long as this runs before the login component
 		// replaces the history, which it always should because the login component won't run until
@@ -34,8 +36,9 @@ module.exports = React.createClass({
 		if (url.search !== '' && url.search.indexOf('?code=') === 0) {
 			this.expand();
 		}
-	},
-	render: function() {
+	}
+
+	render() {
 		var content;
 		if (!this.state.expanded) {
 			content = <button type="button" onClick={this.expand}>Add Project</button>
@@ -54,4 +57,4 @@ module.exports = React.createClass({
 			</div>
 		);
 	}
-});
+}

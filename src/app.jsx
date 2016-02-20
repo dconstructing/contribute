@@ -1,5 +1,6 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var AddPane = require('./components/AddPane');
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import AddPane from './components/AddPane';
 
 ReactDOM.render(<AddPane />, document.getElementById('content'));

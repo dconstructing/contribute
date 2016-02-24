@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
 	entry: './src/app.jsx',
 	output: {
-		filename: 'bundle.js', //this is the default name, so you can skip it
+		filename: 'build/bundle.js', //this is the default name, so you can skip it
 	},
 	module: {
 		loaders: [

@@ -38,3 +38,8 @@ export default class GithubLogin extends React.Component {
 		return <button type="button" onClick={this.handleButtonClick.bind(this)}>GitHub</button>
 	}
 }
+
+GithubLogin.propTypes = {
+	clientId: React.PropTypes.string.isRequired,
+	onTokenReceived: React.PropTypes.func.isRequired
+};

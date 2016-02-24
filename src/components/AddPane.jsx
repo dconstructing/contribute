@@ -1,6 +1,7 @@
 import React from 'react';
 
 import GithubLogin from './GithubLogin';
+import Repo from './Repo';
 
 import repoService from '../services/repositories';
 
@@ -47,7 +48,10 @@ export default class AddPane extends React.Component {
 		} else {
 			content = <div>
 				{ this.state.ownedRepos.map(function(item) {
-					return <div key={item.id}>{item.fullName}</div>
+					let repo = {
+						name: item.fullName
+					}
+					return <Repo key={item.id} repo={repo} />
 				})}
 			</div>
 		}

@@ -41,9 +41,9 @@ export default class AddPane extends React.Component {
 	render() {
 		var content;
 		if (!this.state.expanded) {
-			content = <button type="button" onClick={this.expand}>Add Project</button>
+			content = <button type="button" onClick={this.expand.bind(this)}>Add Project</button>
 		} else if (!this.state.token) {
-			content = <GithubLogin clientId="cebd40667a0b8bb6ea10" onTokenReceived={this.tokenReceived} />
+			content = <GithubLogin clientId="cebd40667a0b8bb6ea10" onTokenReceived={this.tokenReceived.bind(this)} />
 		} else {
 			content = <div>
 				{ this.state.ownedRepos.map(function(item) {

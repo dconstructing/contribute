@@ -20,7 +20,7 @@ export default class GithubLogin extends React.Component {
 
 			// send `code` to our app backend
 			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'http://localhost:3080/exchange/github');
+			xhr.open('POST', 'http://contribute.dconstructing.com/exchange/github');
 			xhr.setRequestHeader('Content-Type', 'application/json');
 			xhr.onload = function(event) {
 				if (this.status == 200) {

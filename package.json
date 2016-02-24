@@ -10,6 +10,10 @@
   },
   "author": "David Cox <losttime.shuffle@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dconstructing/contribute"
+  },
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.5.2",

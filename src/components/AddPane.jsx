@@ -60,7 +60,7 @@ export default class AddPane extends React.Component {
 			</div>
 		}
 		return (
-			<div>
+			<div id="addProject">
 				{content}
 			</div>
 		);

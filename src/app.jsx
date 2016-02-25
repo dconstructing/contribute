@@ -2,5 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import AddPane from './components/AddPane';
+import RepoSearch from './components/RepoSearch';
 
-ReactDOM.render(<AddPane />, document.getElementById('content'));
+let page = <div>
+	<header>
+		<h1>Contribute</h1>
+		<AddPane />
+	</header>
+	<RepoSearch />
+</div>
+
+ReactDOM.render(page, document.getElementById('content'));

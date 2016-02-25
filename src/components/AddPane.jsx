@@ -49,7 +49,11 @@ export default class AddPane extends React.Component {
 			content = <div>
 				{ this.state.ownedRepos.map(function(item) {
 					let repo = {
-						name: item.fullName
+						name: item.fullName,
+						owner: item.owner.login,
+						issues: item.openIssuesCount,
+						stars: item.stargazersCount,
+						watchers: item.watchersCount
 					}
 					return <Repo key={item.id} repo={repo} />
 				})}

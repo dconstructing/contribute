@@ -10,9 +10,16 @@ export default class AddPane extends React.Component {
 		super(props);
 		this.state = {
 			expanded: false,
-			token: null,
+			token: JSON.parse(window.localStorage.getItem('account')),
 			ownedRepos: []
 		};
+	}
+
+	_getRepos(token) {
+		repoService.getPublic(token).then((repos) => {
+			console.log('got repos', repos);
+			this.setState({ownedRepos: repos});
+		});
 	}
 
 	expand() {
@@ -22,11 +29,7 @@ export default class AddPane extends React.Component {
 	tokenReceived(token) {
 		var context = this;
 		this.setState({token: token});
-		// get repos
-		repoService.getPublic(token).then(function(repos) {
-			console.log('got repos', repos);
-			context.setState({ownedRepos: repos});
-		});
+		this._getRepos(token);
 	}
 
 	componentWillMount() {
@@ -37,6 +40,14 @@ export default class AddPane extends React.Component {
 		if (url.search !== '' && url.search.indexOf('?code=') === 0) {
 			this.expand();
 		}
+
+		if (this.state.token) {
+			this._getRepos(this.state.token);
+		}
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		window.localStorage.setItem('account', JSON.stringify(this.state.token));
 	}
 
 	render() {

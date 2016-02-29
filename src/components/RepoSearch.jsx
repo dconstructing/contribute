@@ -41,7 +41,7 @@ export default class RepoSearch extends React.Component {
 			<div>
 				<SearchInput ref='search' onChange={this.search.bind(this)} />
 				<div>
-					{ this.state.foundRepos.map(function(repo) {
+					{ this.state.foundRepos.map((repo) => {
 						return <Repo key={repo.name} repo={repo} />
 					})}
 				</div>

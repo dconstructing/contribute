@@ -55,20 +55,30 @@ export default class AddPane extends React.Component {
 		if (!this.state.expanded) {
 			content = <button type="button" onClick={this.expand.bind(this)}>Add Project</button>
 		} else if (!this.state.token) {
-			content = <GithubLogin clientId="cebd40667a0b8bb6ea10" onTokenReceived={this.tokenReceived.bind(this)} />
+			content = (
+				<div>
+					<h1>Log In</h1>
+					<p>We'll read your public GitHub repos and you can pick which ones to add to Contribute.</p>
+					<GithubLogin clientId="cebd40667a0b8bb6ea10" onTokenReceived={this.tokenReceived.bind(this)} />
+				</div>
+			);
 		} else {
-			content = <div>
-				{ this.state.ownedRepos.map(function(item) {
-					let repo = {
-						name: item.fullName,
-						owner: item.owner.login,
-						issues: item.openIssuesCount,
-						stars: item.stargazersCount,
-						watchers: item.watchersCount
-					}
-					return <Repo key={item.id} repo={repo} />
-				})}
-			</div>
+			content = (
+				<div>
+					<h1>Your Public Repos</h1>
+					<p>Which ones would you like to add to Contribute?</p>
+					{ this.state.ownedRepos.map(function(item) {
+						let repo = {
+							name: item.fullName,
+							owner: item.owner.login,
+							issues: item.openIssuesCount,
+							stars: item.stargazersCount,
+							watchers: item.watchersCount
+						}
+						return <Repo key={item.id} repo={repo} />
+					})}
+				</div>
+			);
 		}
 		return (
 			<div id="addProject">

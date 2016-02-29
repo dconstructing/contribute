@@ -10,6 +10,7 @@ let page = <div>
 		<h1>Contribute</h1>
 		<AddPane />
 	</header>
+	<p>A searchable collection of projects looking for contributors.</p>
 	<RepoSearch />
 </div>
 

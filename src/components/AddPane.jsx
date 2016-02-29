@@ -67,7 +67,7 @@ export default class AddPane extends React.Component {
 				<div>
 					<h1>Your Public Repos</h1>
 					<p>Which ones would you like to add to Contribute?</p>
-					{ this.state.ownedRepos.map(function(item) {
+					{ this.state.ownedRepos.map((item) => {
 						let repo = {
 							name: item.fullName,
 							owner: item.owner.login,

@@ -3,6 +3,7 @@ import React from 'react';
 import GithubLogin from './GithubLogin';
 import Repo from './Repo';
 
+import * as contributeService from '../services/contribute';
 import * as repoService from '../services/repositories';
 
 export default class AddPane extends React.Component {
@@ -30,6 +31,11 @@ export default class AddPane extends React.Component {
 		var context = this;
 		this.setState({token: token});
 		this._getRepos(token);
+	}
+
+	addRepo(item) {
+		console.log('adding', item);
+		contributeService.submit(this.state.token, item);
 	}
 
 	componentWillMount() {
@@ -75,7 +81,12 @@ export default class AddPane extends React.Component {
 							stars: item.stargazersCount,
 							watchers: item.watchersCount
 						}
-						return <Repo key={item.id} repo={repo} />
+						return (
+							<div className="addableRepo" key={item.id}>
+								<p>{repo.name}</p>
+								<button type="button" onClick={this.addRepo.bind(this, item)}>Add</button>
+							</div>
+						);
 					})}
 				</div>
 			);

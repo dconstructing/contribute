@@ -8,6 +8,7 @@ header {
 h1, h2, h3, p {
 	margin: 0;
 }
+
 #addProject {
 	background-color: white;
 	border: 1px solid black;
@@ -15,6 +16,11 @@ h1, h2, h3, p {
 	position: absolute;
 	top: 20px;
 	right: 20px;
+}
+
+.addableRepo {
+	display: flex;
+	justify-content: space-between;
 }
 
 .reactRepo {

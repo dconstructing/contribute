@@ -3,7 +3,7 @@ import React from 'react';
 import GithubLogin from './GithubLogin';
 import Repo from './Repo';
 
-import repoService from '../services/repositories';
+import * as repoService from '../services/repositories';
 
 export default class AddPane extends React.Component {
 	constructor(props) {

@@ -8,12 +8,9 @@ export default class Repo extends React.Component {
 	render() {
 		return (
 			<div className="reactRepo">
-				<p className="name">{this.props.repo.name}</p>
-				<div className="extras">
-					<span className="issues">{this.props.repo.issues}</span>
-					<span className="stars">{this.props.repo.stars}</span>
-					<span className="watchers">{this.props.repo.watchers}</span>
-				</div>
+				<p className="name"><a href={this.props.repo.url}>{this.props.repo.name}</a></p>
+				<p className="description">{this.props.repo.description}</p>
+				<p className="link"><a href={this.props.repo.url}>{this.props.repo.url}</a></p>
 			</div>
 		);
 	}
@@ -22,9 +19,8 @@ export default class Repo extends React.Component {
 Repo.propTypes = {
 	repo: React.PropTypes.shape({
 		name: React.PropTypes.string.isRequired,
-		owner: React.PropTypes.string,
-		issues: React.PropTypes.number,
-		stars: React.PropTypes.number,
-		watchers: React.PropTypes.number
+		description: React.PropTypes.string,
+		url: React.PropTypes.string,
+		owner: React.PropTypes.string
 	}).isRequired
 };

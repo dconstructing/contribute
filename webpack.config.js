@@ -18,7 +18,10 @@ module.exports = {
 						'react'
 					]
 				}
-			}
+			}, {
+				test: /\.json$/,
+				loader: 'json'
+			},
 		]
 	},
 	resolve: {

@@ -10,10 +10,14 @@ You should have `node` and `npm` installed to work on this project.
 
   `npm install`
 
-2. Build
+2. Configure
+
+  `cp config.json.example config.json`
+
+3. Build
 
   `npm run build`
-  
-3. Serve
+
+4. Serve
 
   `npm start`

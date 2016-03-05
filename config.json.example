@@ -1,0 +1,9 @@
+{
+  "baas": {
+    "backendless": {
+      "appId": "[backendless client ID]",
+      "secretKey": "[backendless javascript secret]",
+      "version": "v1"
+    }
+  }
+}
